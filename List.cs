@@ -40,7 +40,7 @@ namespace listaEstrutura
                 return "";
             }
         }
-        public void addNodo(int value)
+        public void AddNodo(int value)
         {
             if (this.root == null)
             {
@@ -56,7 +56,7 @@ namespace listaEstrutura
                 activeNodo.nextNodo = new Nodo(value);
             }
         }
-        public void removeNodoByValue(int value)
+        public void RemoveNodoByValue(int value)
 
         {
             try
@@ -92,7 +92,7 @@ namespace listaEstrutura
                 Console.WriteLine(e.ToString());
             }
         }
-        public void removeNodeByIndex(int index)
+        public void RemoveNodeByIndex(int index)
         {
             try
 
@@ -132,7 +132,7 @@ namespace listaEstrutura
             }
             catch (Exception e) { Console.WriteLine(e); }
         }
-        public void order()
+        public void Order()
         {
             if (this.root == null || this.root.nextNodo == null)
             {
@@ -144,7 +144,7 @@ namespace listaEstrutura
                 this.root = temp.nextNodo;
                 temp.nextNodo = this.root.nextNodo;
                 this.root.nextNodo = temp;
-                this.order();
+                this.Order();
                 return;
             }
             Nodo active = this.root;
@@ -157,7 +157,7 @@ namespace listaEstrutura
                     valueAux = active.value;
                     active.value = active.nextNodo.value;
                     active.nextNodo.value = valueAux;
-                    this.order();
+                    this.Order();
                     return;
 
                 }
@@ -169,7 +169,7 @@ namespace listaEstrutura
                 }
             }
         }
-        public void changeValueByIndex(int index, int value)
+        public void ChangeValueByIndex(int index, int value)
         {
             try
             {
@@ -200,6 +200,37 @@ namespace listaEstrutura
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+        public int FindByIndex(int id)
+        {
+            Nodo activeNodo = this.root;
+            int resultado = 0;
+            try
+            {
+                if (id < 0)
+                {
+                    throw new Exception("Índice fora dos limites");
+                }
+               
+                for (int i = 0; i < id; i++)
+                {
+                    if(activeNodo == null)
+                    {
+                        throw new Exception("Índice fora dos limites");
+                    }
+                    activeNodo = activeNodo.nextNodo;
+                }
+               
+
+            resultado = activeNodo.value;
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.ToString());
+               
+            }
+            return resultado;
         }
     }
 }

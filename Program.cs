@@ -12,17 +12,18 @@ namespace listaEstrutura
         {
             List lista = new List();
             
-            lista.addNodo(15);
-            lista.addNodo(5);
-            lista.addNodo(7);
-            lista.addNodo(4);
+            lista.AddNodo(15);
+            lista.AddNodo(5);
+            lista.AddNodo(7);
+            lista.AddNodo(4);
             Console.WriteLine(lista);
-            lista.order();
+            lista.Order();
 
             Console.WriteLine(lista);
-            lista.removeNodoByValue(7);
-            lista.removeNodeByIndex(1);
-            lista.changeValueByIndex(5, 222);
+            lista.RemoveNodoByValue(7);
+            lista.RemoveNodeByIndex(1);
+            lista.ChangeValueByIndex(5, 222);
+            Console.WriteLine(lista.FindByIndex(22));
             Console.WriteLine(lista);
             Console.ReadKey();
             
